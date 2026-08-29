@@ -3,7 +3,7 @@ namespace Grav\Plugin;
 
 use Grav\Common\Plugin;
 use RocketTheme\Toolbox\Event\Event;
-require_once(__DIR__ . '/vendor/fortune.php');
+require_once(__DIR__ . '/classes/Fortune.php');
 
 /**
  * Class FortunePlugin
@@ -21,24 +21,26 @@ class FortunePlugin extends Plugin
      *     callable (or function) as well as the priority. The
      *     higher the number the higher the priority.
      */
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
-            'onPluginsInitialized' => ['onPluginsInitialized', 0]
+            'onPluginsInitialized' => [
+                ['onPluginsInitialized', 0]
+            ]
         ];
     }
 
     /**
      * Initialize the plugin
      */
-    public function onPluginsInitialized()
+    public function onPluginsInitialized(): void
     {
         // Don't proceed if we are in the admin plugin
         if ($this->isAdmin()) {
             return;
         }
 
-        // Enable the main event we are interested in
+        // Enable the main events we are interested in
         $this->enable([
             'onPagesInitialized' => ['onPagesInitialized', 0]
         ]);
@@ -72,6 +74,6 @@ class FortunePlugin extends Plugin
         if (file_exists($path)) {
             return $path;
         }
-        return null;        
+        return null;
     }
 }

@@ -4,7 +4,7 @@ namespace Grav\Plugin\Console;
 use Grav\Console\ConsoleCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
-require_once(__DIR__ . '/../vendor/fortune.php');
+require_once(__DIR__ . '/../classes/Fortune.php');
 
 /**
  * Class HelloCommand
@@ -51,11 +51,11 @@ class IndexCommand extends ConsoleCommand
             $dir = new \DirectoryIterator($this->options['name']);
             foreach ($dir as $fileinfo) {
                 if ( ($fileinfo->isFile()) && (! self::endsWith($fileinfo->getFilename(), ".dat")) ) {
-                    $f->createIndexFile($fileinfo->getPathname(), true);        
+                    $f->createIndexFile($fileinfo->getPathname(), true);
                 }
             }
         }
-        elseif (is_file($this->options['name'])) 
+        elseif (is_file($this->options['name']))
         {
             $f = new \Fortune;
             $f->createIndexFile($this->options['name'], true);
