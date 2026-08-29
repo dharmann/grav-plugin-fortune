@@ -1,27 +1,42 @@
 name: Fortune
+slug: fortune
+type: plugin
 version: 1.0.0
 description: Select a random quote from a collection of properly formatted "fortune" files
 icon: book
 author:
-  name: Aaron Dalton
-  email: aaron@daltons.ca
+  name: dharman
+  email: dharman@10100.to
+original_author:
+  name: "Aaron Dalton"
+  email: "aaron@daltons.ca"
 homepage: https://github.com/perlkonig/grav-plugin-fortune
 demo: https://www.perlkonig.com/demos/fortune
 keywords: grav, plugin, fortune, quotes, random
-bugs: https://github.com/perlkonig/grav-plugin-fortune/issues
-docs: https://github.com/perlkonig/grav-plugin-fortune/blob/develop/README.md
+bugs: https://github.com/dharmann/grav-plugin-fortune/issues
+docs: https://github.com/dharmann/grav-plugin-fortune/blob/develop/README.md
 license: MIT
+
+compatibility:
+  grav: ['2.0']
+
+dependencies:
+  - { name: grav, version: '>=2.0.0' }
 
 form:
   validation: strict
   fields:
     enabled:
       type: toggle
-      label: Plugin status
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
       highlight: 1
       default: 0
       options:
-        1: Enabled
-        0: Disabled
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
       validate:
         type: bool
+    text_var:
+      type: text
+      label: PLUGIN_FORTUNE.TEXT_VARIABLE
+      help: PLUGIN_FORTUNE.TEXT_VARIABLE_HELP

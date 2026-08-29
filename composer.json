@@ -1,0 +1,9 @@
+{
+	"name": "dharmann/fortune",
+	"description": "A description of your plugin.",
+	"autoload": {
+		"psr-4": {
+			"Grav\\Plugin\\Fortune\\": "classes/"
+		}
+	}
+}
