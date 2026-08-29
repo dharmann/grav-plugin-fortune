@@ -1,9 +1,10 @@
 <?php
 namespace Grav\Plugin;
 
+use Composer\Autoload\ClassLoader;
 use Grav\Common\Plugin;
+use Grav\Plugin\Fortune\Fortune;
 use RocketTheme\Toolbox\Event\Event;
-require_once(__DIR__ . '/classes/Fortune.php');
 
 /**
  * Class FortunePlugin
@@ -29,6 +30,17 @@ class FortunePlugin extends Plugin
             ]
         ];
     }
+
+    /**
+     * Composer autoload
+     *
+     * @return ClassLoader
+     */
+    public function autoload(): ClassLoader
+    {
+        return require __DIR__ . '/vendor/autoload.php';
+    }
+
 
     /**
      * Initialize the plugin
@@ -58,7 +70,7 @@ class FortunePlugin extends Plugin
         $fn = $this->resolveFolder($config->get('plugins.fortune.data'));
         if ( (! is_null($fn)) && (is_dir($fn)) )
         {
-            $f = new \Fortune;
+            $f = new Fortune();
             $fortune = $f->quoteFromDir($fn.'/');
             $this->grav['twig']->twig_vars['fortune'] = $fortune;
         }

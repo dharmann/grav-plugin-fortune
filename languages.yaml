@@ -1,0 +1,8 @@
+en:
+  PLUGIN_FORTUNE:
+    TEXT_VARIABLE: Text Variable
+    TEXT_VARIABLE_HELP: Text to add to the top of a page
+it:
+  PLUGIN_FORTUNE:
+    TEXT_VARIABLE: Variabile di testo
+    TEXT_VARIABLE_HELP: Testo da aggiungere all'inizio di una pagina

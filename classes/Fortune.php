@@ -1,4 +1,6 @@
 <?php
+namespace Grav\Plugin\Fortune;
+
 /*
 Main methods to use:
  quoteFromDir($dir):

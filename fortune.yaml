@@ -1,2 +1,3 @@
 enabled: true
 data: 'user://data/fortunes'
+text_var: Custom Text added by the **Fortune** plugin (disable plugin to remove)

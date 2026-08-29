@@ -1,6 +1,24 @@
 {
 	"name": "dharmann/fortune",
-	"description": "A description of your plugin.",
+	"description": "Una breve ma chiara descrizione di cosa fa il tuo plugin per Grav.",
+	"type": "grav-plugin",
+	"keywords": ["grav", "plugin", "fortune", "quotes", "random"],
+	"homepage": "https://github.com/dharmann/grav-plugin-fortune",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "dharman",
+			"email": "dharman@mailp.it",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/dharmann/grav-plugin-fortune/issues",
+		"docs": "https://github.com/dharmann/grav-plugin-fortune/blob/master/README.md"
+	},
+	"require": {
+		"php": ">=8.3.0"
+	},
 	"autoload": {
 		"psr-4": {
 			"Grav\\Plugin\\Fortune\\": "classes/"

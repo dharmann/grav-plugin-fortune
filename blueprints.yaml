@@ -1,7 +1,7 @@
 name: Fortune
 slug: fortune
 type: plugin
-version: 1.0.0
+version: 1.0.99
 description: Select a random quote from a collection of properly formatted "fortune" files
 icon: book
 author:
