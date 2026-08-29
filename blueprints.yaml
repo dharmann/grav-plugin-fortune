@@ -6,12 +6,12 @@ description: Select a random quote from a collection of properly formatted "fort
 icon: book
 author:
   name: dharman
-  email: dharman@10100.to
+  email: dharman@mailp.it
 original_author:
   name: "Aaron Dalton"
   email: "aaron@daltons.ca"
-homepage: https://github.com/perlkonig/grav-plugin-fortune
-demo: https://www.perlkonig.com/demos/fortune
+homepage: https://github.com/dharmann/grav-plugin-fortune
+demo: https://10100.to
 keywords: grav, plugin, fortune, quotes, random
 bugs: https://github.com/dharmann/grav-plugin-fortune/issues
 docs: https://github.com/dharmann/grav-plugin-fortune/blob/develop/README.md
