@@ -1,0 +1,46 @@
+name: Create Release
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate SemVer
+        id: check_version
+        run: |
+          TAG=${GITHUB_REF_NAME}
+
+          # 1. Check if it matches basic SemVer (Major.Minor.Patch) and Major > 0
+          if [[ $TAG =~ ^[1-9][0-9]*\.([0-9]+)\.([0-9]+)$ ]]; then
+            # Extract Minor and Patch from the regex capture groups
+            MINOR=${BASH_REMATCH[1]}
+            PATCH=${BASH_REMATCH[2]}
+
+            # 2. Explicitly check that Minor and Patch are not 99
+            if [[ "$MINOR" != "99" && "$PATCH" != "99" ]]; then
+              echo "version_match=true" >> $GITHUB_OUTPUT
+            else
+              echo "version_match=false" >> $GITHUB_OUTPUT
+              echo "Tag $TAG fails because Minor or Patch is 99."
+            fi
+          else
+            echo "version_match=false" >> $GITHUB_OUTPUT
+            echo "Tag $TAG does not match Major>0.Minor.Patch format."
+          fi
+
+
+      - name: Create Release
+        if: steps.check_version.outputs.version_match == 'true'
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: Release ${{ github.ref_name }}
+          body: "Automated release for version ${{ github.ref_name }}"

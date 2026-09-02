@@ -1,0 +1,5 @@
+# These files will be omitted from the automatic created source zips
+.gitea/ export-ignore
+.github/ export-ignore
+.gitignore export-ignore
+.gitattributes export-ignore
