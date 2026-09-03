@@ -14,7 +14,7 @@ homepage: https://github.com/dharmann/grav-plugin-fortune
 demo: https://10100.to
 keywords: grav, plugin, fortune, quotes, random
 bugs: https://github.com/dharmann/grav-plugin-fortune/issues
-docs: https://github.com/dharmann/grav-plugin-fortune/blob/develop/README.md
+docs: https://github.com/dharmann/grav-plugin-fortune/blob/master/README.md
 license: MIT
 
 compatibility:
