@@ -1,3 +1,9 @@
+# v1.1.4
+##  03/09/2018
+
+1. [](#fixed)
+    * Fixed a crash if a fortunes dat file doesn't exists.
+
 # v1.1.3
 ##  03/09/2018
 
