@@ -59,8 +59,11 @@ jobs:
       - name: Create Deployment Zip
         if: steps.check_version.outputs.version_match == 'true'
         run: |
-          # Crea lo zip includendo la nuova cartella vendor, escludendo file git e lock
-          zip -r ${{ steps.repo-name.outputs.name }}.zip . -x ".git*" ".github*" ".gitea*" "composer.lock"
+          # Create the zip file including the new vendor folder, excluding git and lock files
+
+          cd "$GITHUB_WORKSPACE/.."
+          zip -r ${{ steps.repo-name.outputs.name }}.zip "$(basename "$GITHUB_WORKSPACE")" \
+            -x "$(basename "$GITHUB_WORKSPACE")/.git*"
       # --- END COMPOSER INTEGRATION ---
 
       # An action to create the release and to load the asset in one go!
@@ -71,6 +74,6 @@ jobs:
           tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           body: "Automated release for version ${{ github.ref_name }}"
-          files: ${{ steps.repo-name.outputs.name }}.zip
+          files: ${{ github.workspace }}/../${{ steps.repo-name.outputs.name }}.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
