@@ -143,7 +143,6 @@ class Fortune {
 
 	private function readLong($fd) {
 	  $res = fread($fd, 4);
-		file_put_contents('/tmp/pollo', print_r($res ,true)."\n", FILE_APPEND);
 	  $l = ord($res[3]);
 	  $l += ord($res[2]) << 8;
 	  $l += ord($res[1]) << 16;
